@@ -20,7 +20,6 @@ Article.prototype.toHtml = function() {
   with a class of template a display of none. Let's make
   sure we're not accidentally hiding our cloned article! */
   $newArticle.show();
-  debugger;
   if (!this.publishedOn) $newArticle.addClass('draft');
   $newArticle.data('category', this.category);
 
@@ -39,8 +38,7 @@ Article.prototype.toHtml = function() {
   // Display the date as a relative number of 'days ago'
   $newArticle.find('time').html('about ' + parseInt((new Date() - new Date(this.publishedOn))/60/60/24/1000) + ' days ago');
   $newArticle.append('<hr>');
-  debugger;
-  return $newArticle;
+  return $newArticle.html();
 };
 
 rawData.sort(function(a,b) {

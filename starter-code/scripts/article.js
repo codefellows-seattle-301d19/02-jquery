@@ -16,8 +16,8 @@ Article.prototype.toHtml = function() {
   var $newArticle = $('article.template').clone();
   $newArticle.removeClass('template');
   if (!this.publishedOn) $newArticle.addClass('draft');
-  $newArticle.data('category', this.category);
 
+  $newArticle.data('category', this.category);
 
   $newArticle.attr(this.author);
   $newArticle.find('.byline a').text(this.author);
@@ -31,8 +31,6 @@ Article.prototype.toHtml = function() {
   return $newArticle;
 };
 
-
-
 rawData.sort(function(a,b) {
   return (new Date(b.publishedOn)) - (new Date(a.publishedOn));
 });
@@ -43,5 +41,4 @@ rawData.forEach(function(articleObject) {
 
 articles.forEach(function(article) {
   $('#articles').append(article.toHtml());
-
 });
